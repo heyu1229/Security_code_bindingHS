@@ -1,7 +1,7 @@
 '''
 @create : lisa
 @file :security_code
-@Date :2024/3/1
+@Date :2024/3/6
 @desc :
 
 '''
@@ -28,8 +28,8 @@ def bind_security_code(folder_path,brand,HS_securitycode_id,num):
                 # 连接数据库
                 query = "update bw_security_code.tbl_security_code set security_code= %s where id = %s;"
                 connection = connect_database(query, traceability_code,HS_securitycode_id[i])
+                print(f"绑定防伪码： {lines[i]}")
 
-                print(lines[i])
                 with open(secuirty_code_files_out, 'a') as f:
                     f.write(traceability_code+','+secuirty_code_link+'\n')
 
@@ -42,9 +42,4 @@ def bind_security_code(folder_path,brand,HS_securitycode_id,num):
 
 
 
-
-#连接数据库
-# security_code1 = "58102086709778445"
-# query = "SELECT id FROM bw_security_code.tbl_security_code where security_code =%s"
-# connection = connect_database(query,security_code1)
 
